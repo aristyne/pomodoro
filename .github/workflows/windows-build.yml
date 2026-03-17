@@ -25,7 +25,7 @@ jobs:
         run: npm run dist
 
       - name: Upload Windows artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pomodoro-desktop-windows
           path: dist/*.exe
