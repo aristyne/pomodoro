@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="softLavender">
+    <div class="topbar" id="topbar">
+      <div class="title">Pomodoro Timer</div>
+      <div class="actions">
+        <button id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
+        <button id="closeBtn" aria-label="Close" title="Close">✖</button>
+      </div>
+    </div>
+
+    <main class="card" role="main" aria-label="Pomodoro Timer">
+      <div class="timer-area">
+        <svg class="progress-ring" width="260" height="260" viewBox="0 0 120 120" aria-label="timer ring">
+          <circle class="bg" cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-width="12"></circle>
+          <circle class="progress" cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" transform="rotate(-90 60 60)" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+        </svg>
+        <div class="timer-text" id="timerText">25:00</div>
+      </div>
+      <div class="controls">
+        <button id="startBtn" class="btn primary">Start</button>
+        <button id="resetBtn" class="btn secondary">Reset</button>
+      </div>
+      <div class="session-counter" id="sessionCounter">Session 1 / 4</div>
+    </main>
+
+    <!-- Settings Panel -->
+    <section id="settingsPanel" class="settings-panel" aria-label="Settings" hidden>
+      <h3>Settings</h3>
+      <div class="settings-grid">
+        <label>Session (minutes)</label>
+        <input type="number" id="sessionLen" min="1" max="180" value="25" />
+
+        <label>Break (minutes)</label>
+        <input type="number" id="breakLen" min="1" max="180" value="5" />
+
+        <label>Long Break (minutes)</label>
+        <input type="number" id="longBreakLen" min="1" max="180" value="15" />
+
+        <label>Sound</label>
+        <input type="checkbox" id="soundToggle" checked />
+
+        <label>Notifications</label>
+        <input type="checkbox" id="notifyToggle" checked />
+
+        <label>Theme</label>
+        <select id="themeSelect">
+          <option value="softLavender">Soft Lavender</option>
+          <option value="darkFocus">Dark Focus</option>
+          <option value="nature">Nature</option>
+        </select>
+
+        <label>Auto-start next</label>
+        <input type="checkbox" id="autoStartToggle" checked />
+      </div>
+      <div class="settings-actions">
+        <button id="saveSettings" class="btn primary">Save</button>
+        <button id="closeSettings" class="btn secondary">Close</button>
+      </div>
+    </section>
+
+    <!-- Close confirmation modal -->
+    <div id="confirmModal" class="confirm-modal" hidden>
+      <div class="modal-content">
+        <p>Timer is running. Are you sure you want to exit?</p>
+        <div class="modal-actions">
+          <button id="confirmYes" class="btn primary">Yes</button>
+          <button id="confirmNo" class="btn secondary">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,33 @@
+# Node dependencies and build outputs
+node_modules/
+dist/
+build/
+out/
+.cache/
+.nyc_output/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+*.log
+
+#+ OS and editor junk
+.DS_Store
+.idea/
+.vscode/
+.history/
+
+#+ Packaging / installers
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+*.pkg
+*.msi
+*.tar.gz
+*.xz
+
+#+ Environment
+.env
+.env.local
